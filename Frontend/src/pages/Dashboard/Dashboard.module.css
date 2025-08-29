@@ -1,0 +1,25 @@
+.dashboard {
+  padding: 2rem;
+  text-align: center;
+}
+
+.dashboard__title {
+  font-size: 2rem;
+}
+
+.dashboard__tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.dashboard__tabs button {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.dashboard__tabs .active {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+}
