@@ -1,12 +1,13 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Provider } from "react-redux";
+import { store } from "./hooks/redux/store";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import Dashboard from './pages/Dashboard/Dashboard';
-// import { LoginContextProvider } from './hooks/context/context';
 
 function App() {
   return (
-    // <LoginContextProvider>
+    <Provider store={store}>
       <Router>
         <Routes>
           <Route path="/login" element={<Login />} />
@@ -14,8 +15,7 @@ function App() {
           <Route path="/" element={<Dashboard />} />
         </Routes>
       </Router>
-    // </LoginContextProvider>
-
+    </Provider>
   );
 }
 

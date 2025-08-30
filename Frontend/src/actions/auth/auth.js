@@ -1,7 +1,6 @@
 import { apiUrls } from "../../services/api/urls";
 
 export const handleCreateUser = async (data) => {
-  console.log("url: ", apiUrls.auth.create)
   const result = await fetch(apiUrls.auth.create, {
     method: "POST",
     headers: {
@@ -11,7 +10,6 @@ export const handleCreateUser = async (data) => {
   });
   const response = await result.json();
 
-  console.log("respuestaaaa: ", response)
   return response
 };
 

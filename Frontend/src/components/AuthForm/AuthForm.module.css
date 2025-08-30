@@ -1,0 +1,41 @@
+.auth-form {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-form__group {
+  margin-bottom: 1rem;
+}
+
+.auth-form__label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.auth-form__input {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.auth-form__button {
+  padding: 0.75rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.auth-form__button:hover {
+  background-color: #0056b3;
+}
+
+.auth-form__input {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+}

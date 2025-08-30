@@ -1,0 +1,180 @@
+.tablepage__section {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tablepage__title {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: #34495e;
+}
+
+.tablepage__container {
+  overflow-x: auto;
+}
+
+.tablepage__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tablepage__header,
+.tablepage__cell {
+  padding: 12px;
+  text-align: left;
+  font-size: 1rem;
+  white-space: nowrap; 
+}
+
+.tablepage__header {
+  background-color: #2c3e50;
+  color: white;
+}
+
+.tablepage__row:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.tablepage__status--active {
+  color: #27ae60;
+  font-weight: bold;
+}
+
+.tablepage__status--inactive {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.tablepage__edit-button,
+.tablepage__delete-button {
+  padding: 8px 15px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tablepage__edit-button {
+  background-color: #3498db;
+  color: white;
+}
+
+.tablepage__edit-button:hover {
+  background-color: #2980b9;
+}
+
+.tablepage__delete-button {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.tablepage__delete-button:hover {
+  background-color: #c0392b;
+}
+
+.tablepage__search-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  border: 1px solid #bdc3c7;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #34495e;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tablepage__search-input:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+.tablepage__search-input::placeholder {
+  color: #95a5a6;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .tablepage__header,
+  .tablepage__cell {
+    font-size: 0.875rem;
+    padding: 8px;
+  }
+
+  .tablepage__search-input {
+    padding: 8px 12px;
+    margin-bottom: 15px;
+  }
+
+  .tablepage__title {
+    font-size: 1.25rem;
+  }
+
+  .tablepage__edit-button,
+  .tablepage__delete-button {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+
+  .tablepage__edit-button svg,
+  .tablepage__delete-button svg {
+    margin-right: 3px;
+  }
+
+  .tablepage__pagination{
+    flex-direction: column;
+  }
+}
+
+.tablepage__edit-button,
+.tablepage__delete-button {
+  padding: 8px 15px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center; 
+  justify-content: center; 
+}
+
+.tablepage__edit-button {
+  background-color: #3498db;
+  color: white;
+}
+
+.tablepage__edit-button:hover {
+  background-color: #2980b9;
+}
+
+.tablepage__delete-button {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.tablepage__delete-button:hover {
+  background-color: #c0392b;
+}
+
+.tablepage__edit-button svg,
+.tablepage__delete-button svg {
+  margin-right: 5px; 
+}
+
+.tablepage__pagination{
+  display: flex;
+}
+
+.tablepage__pagination__text{
+  padding-left: 10px;
+  padding-right: 15px;
+}
+
+.tablepage__select__filter{
+  margin-left: 20px;
+}
