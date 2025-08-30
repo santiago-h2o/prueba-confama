@@ -4,6 +4,7 @@ import style from '../tablePage.module.css';
 export const createColumns = (
   customColumns,
   handleDelete,
+  handleEdit,
   currentPage,
   rol
 ) => {
@@ -12,16 +13,19 @@ export const createColumns = (
     header: 'Acciones',
     cell: ({ row }) => (
       <div style={{ display: 'flex', gap: '8px' }}>
-        {
-          (rol === "admin") && (
-            <button
-              onClick={() => handleDelete(row.original.id)}
-              className={style['tablepage__delete-button']}
-            >
-              Eliminar
-            </button>
-          )
-        }
+        <button
+          onClick={() => handleEdit(row.original)}
+          className={style['tablepage__edit-button']}
+        >
+          Editar
+        </button>
+        <button
+          onClick={() => handleDelete(row.original.id)}
+          className={style['tablepage__delete-button']}
+        >
+          Eliminar
+        </button>
+
       </div>
     ),
   };

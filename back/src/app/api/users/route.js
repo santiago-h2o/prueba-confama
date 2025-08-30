@@ -16,7 +16,7 @@ export async function OPTIONS() {
 export async function POST(req) {
   try {
     await connectionToDb();
-    const { name, password } = await req.json();
+    const { name, password } = req.json();
 
     const newUser = new User({ name, password });
     await newUser.save();

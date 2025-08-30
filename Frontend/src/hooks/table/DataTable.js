@@ -12,7 +12,7 @@ import { createColumns } from './globalColumn/GlobalColumn';
 import { FaAngleDoubleLeft, FaAngleDoubleRight } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 
-const DataTable = ({ data, columns, handleDelete, title, currentPage }) => {
+const DataTable = ({ data, columns, handleDelete, handleEdit, title, currentPage }) => {
   const [globalFilter, setGlobalFilter] = useState('');
   const [pagination, setPagination] = useState({
     pageIndex: currentPage,
@@ -43,7 +43,7 @@ const DataTable = ({ data, columns, handleDelete, title, currentPage }) => {
 
   const table = useReactTable({
     data,
-    columns: createColumns(columns, handleDelete, pagination.pageIndex, infoUser?.rol),
+    columns: createColumns(columns, handleDelete, handleEdit, pagination.pageIndex, infoUser?.rol),
     state: {
       globalFilter,
       pagination,

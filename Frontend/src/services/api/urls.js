@@ -1,7 +1,7 @@
 
 export const apiUrls = {
-    employees: {
-        'create': `${process.env.REACT_APP_API_URL}createEmployee`,
+    products: {
+        'products': `${process.env.REACT_APP_API_URL}products`,
         'get': `${process.env.REACT_APP_API_URL}getEmployees`,
         'delete': (id) => `${process.env.REACT_APP_API_URL}deleteEmployee/${id}`,
     },
