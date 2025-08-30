@@ -4,7 +4,7 @@ import DataTable from "../../hooks/table/DataTable";
 import styles from "./Dashboard.module.css";
 import { columnProducts } from "../../hooks/table/columns/ProductsColumn";
 import { columnSolicitude } from "../../hooks/table/columns/SolicitudeColumn";
-import { handleDeleteEmployee, handleGetProducts } from "../../actions/products/products";
+import { handleDeleteProduct, handleGetProducts } from "../../actions/products/products";
 import { handleDeleteSolicitude, handleGetSolicitude } from "../../actions/solicitude/solicitude";
 import ProductsForm from "../../components/ProductsForm/ProductsForm";
 import SolicitudeForm from "../../components/SolicitudeForm/SolicitudeForm";
@@ -31,7 +31,6 @@ function Dashboard() {
   const fetchData = async () => {
     if (view === "products") {
       const response = await handleGetProducts();
-      console.log("response 222: ", response)
       setData(response.data);
     } else if (view === "solicitude") {
       const response = await handleGetSolicitude();
@@ -45,7 +44,6 @@ function Dashboard() {
   }, [view]);
 
   const handleCreate = async (newItem) => {
-    console.log("Nuevo registro creado:", newItem);
     fetchData();
   };
 
@@ -57,8 +55,7 @@ function Dashboard() {
   const handleDelete = async (id) => {
     Swal.fire({
       title: "¿Estas seguro?",
-      text: `Quieres eliminar ${view === "products" ? "el empleado " : " la solicitud "
-        } con el id ${id}?`,
+      text: `Quieres eliminar el producto con el id ${id}?`,
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -68,10 +65,7 @@ function Dashboard() {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const response =
-            view === "products"
-              ? await handleDeleteEmployee(id)
-              : await handleDeleteSolicitude(id);
+          const response = handleDeleteProduct(id)
 
           if (response?.status === 200) {
             Swal.fire({
@@ -99,18 +93,16 @@ function Dashboard() {
   };
 
   const handleEdit = async (data) => {
-    console.log("data para editar: ", data)
     setEdit(!edit)
     setEditData(data)
     setShowForm(true)
   };
 
-  const columns = view === "products" ? columnProducts : columnSolicitude;
 
   return (
     <div className={styles["dashboard"]}>
       <h1 className={styles["dashboard__title"]}>
-        Bienvenido {infoUser?.name} ({infoUser?.rol})
+        Dashboard
       </h1>
 
       <button
@@ -129,18 +121,6 @@ function Dashboard() {
       </button>
 
       <div className={styles["dashboard__tabs"]}>
-        <button
-          onClick={() => setView("products")}
-          className={view === "products" ? styles.active : ""}
-        >
-          Empleados
-        </button>
-        <button
-          onClick={() => setView("solicitude")}
-          className={view === "solicitude" ? styles.active : ""}
-        >
-          Solicitudes
-        </button>
       </div>
 
       <button
@@ -152,7 +132,7 @@ function Dashboard() {
 
       <DataTable
         data={data}
-        columns={columns}
+        columns={columnProducts}
         currentPage={currentPage}
         handleDelete={handleDelete}
         handleEdit={handleEdit}

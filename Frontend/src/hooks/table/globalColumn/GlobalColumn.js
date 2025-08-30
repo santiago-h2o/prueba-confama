@@ -20,7 +20,7 @@ export const createColumns = (
           Editar
         </button>
         <button
-          onClick={() => handleDelete(row.original.id)}
+          onClick={() => handleDelete(row.original._id)}
           className={style['tablepage__delete-button']}
         >
           Eliminar

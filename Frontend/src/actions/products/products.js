@@ -12,7 +12,6 @@ export const handleGetProducts = async (data) => {
 };
 
 export const handleCreateProduct = async (data) => {
-  console.log("data: ", data)
   const result = await fetch(apiUrls.products.products, {
     method: "POST",
     headers: {
@@ -25,7 +24,6 @@ export const handleCreateProduct = async (data) => {
 };
 
 export const handleUpdateProduct = async (data) => {
-  console.log("data: ", data)
   const result = await fetch(apiUrls.products.products, {
     method: "PUT",
     headers: {
@@ -37,12 +35,13 @@ export const handleUpdateProduct = async (data) => {
   return response
 };
 
-export const handleDeleteEmployee = async (id) => {
-  const result = await fetch(apiUrls.employees.delete(id), {
+export const handleDeleteProduct = async (id) => {
+  const result = await fetch(apiUrls.products.products, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
     },
+    body: JSON.stringify({_id: id}),
   });
   const response = await result.json();
   return response

@@ -21,8 +21,6 @@ export async function POST(req) {
     try {
         await connectionToDb();
         const { name, password } = await req.json();
-        console.log("name: ", name)
-        console.log("password: ", password)
 
         const user = await User.findOne({ name });
         if (!user) {
